@@ -6,3 +6,4 @@ import Parent from './Parent';
 export default function BugChildParentCommunication() {
   return <Parent />;
 }
+//I passed the increment function as a prop from Parent to Child.  So that the button increments the counter in Parent.
