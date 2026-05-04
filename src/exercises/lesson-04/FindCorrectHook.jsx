@@ -1,19 +1,19 @@
 // TOPIC: Choose the correct tool: useRef vs useState
 // TASK: Make sure it updates the text *without* triggering a re-render
-import { useRef } from 'react';
+import { useState } from 'react';
 export default function FindCorrectHook() {
-  const clickCount = useRef(0); // ← incorrect implementation
+  const [clickCount, setClickCount] = useState(0); // ← incorrect implementation
 
   function handleClick() {
-    clickCount.current = clickCount.current + 1;
+    setClickCount((prev) => prev + 1);
   }
 
   return (
     <div>
       <h2>useRef vs useState Decision</h2>
-      <button onClick={handleClick}>{clickCount.current} Clicks</button>
+      <button onClick={handleClick}>{clickCount} Clicks</button>
     </div>
   );
 }
-//This program needs useRef so that it updates the text without triggering a re render
-//useState - whenever updates happen  it triggers re render,So we cant use useState here.
+//I used useState because the click count is displayed in the UI.
+//  Updating UI requires a re-render, and useState triggers re-renders.
