@@ -7,9 +7,10 @@ export default function BugStrictMode() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setCount((c) => c + 1);
     }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -21,3 +22,5 @@ export default function BugStrictMode() {
 }
 
 // Write your explanation of how StrictMode helps us catch this bug
+//In strict mode useEffect run twice to detect side effects. For setInterval we need to return a cleanup function,
+// without cleanup multiple intervals will create, which cause counter to update incorrectly.
