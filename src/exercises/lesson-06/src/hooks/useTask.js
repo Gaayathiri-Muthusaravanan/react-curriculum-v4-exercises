@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 export function useTask() {
   const [tasks, setTasks] = useState([]);
-  const [filter, setFilter] = useState('all');
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,5 +15,5 @@ export function useTask() {
     }, 500);
     return () => clearTimeout(timeout);
   }, []);
-  return { tasks, filter, loading };
+  return { tasks, loading };
 }
