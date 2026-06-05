@@ -58,8 +58,10 @@ export function QuestionItem({ question }) {
   const handleDelete = () => {
     console.log('TODO: Implement delete functionality');
     // Hint: Show confirmation dialog, then use DELETE_QUESTION action
-    /*const confirmed = window.confirm('Are you sure you want to delete this question?');
-      if (!confirmed) return;*/
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this question?'
+    );
+    if (!confirmed) return;
     dispatch({
       type: 'DELETE_QUESTION',
       payload: {
