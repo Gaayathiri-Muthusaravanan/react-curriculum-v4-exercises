@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
 export default function NotFound() {
-  const pathname = '';
+  const pathname = useLocation();
 
   return (
     <section>
